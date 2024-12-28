@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Email Form</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            margin: 30px;
+            border:1px red;
+            background-image: url('https://t4.ftcdn.net/jpg/08/04/31/73/360_F_804317316_TA6ewpJrhCQvDhwlrkGgLbmSAgMdS8bt.jpg' );
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding:40px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpleHv_b_xF7MEDnMGqK5lSYcWXaSMj9DvOw&s' );
+            border: 1px lime;
+            border-radius: 10px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 5px;
+            margin: 20px 0;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        button {
+            background-color:rgb(141, 14, 77);
+            color : white;
+            border: rgb(235, 33, 33);
+            cursor: pointer;
+        }
+        button:hover {
+            background-color:rgb(24, 22, 22);
+        }
+        
+    </style>
+</head>
+        <h1 style="text-align: center;">Email Form</h1>
+        <form id="emailForm">
+        <label for="to"> EmailId:</label>
+        <input type="email" id="to" name="to" placeholder=" EmailId" required>
+        <label for="to">To:</label>
+        <input type="email" id="to" name="to" placeholder=" To" required>
+        <label for="cc">CC:</label>
+        <input type="email" id="cc" name="cc" placeholder="CC (Optional)">
+        <label for="bcc">BCC:</label>
+        <input type="email" id="bcc" name="bcc" placeholder="BCC (Optional)">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        <button type="submit">Send Email</button>
+    </form>
+    <script>
+           document.getElementById('emailForm').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+            const to = document.getElementById('to').value.trim();
+            const cc = document.getElementById('cc').value.trim(); 
+            const bcc = document.getElementById('bcc').value.trim(); 
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (to && subject && message) 
+            {
+                alert('Your email has been sent successfully!');
+                this.reset(); 
+            }
+            else{
+                alert('Email not sent! Please fill out all required fields.');
+            }
+         });
+    </script>
+</body>
+</html>
+
+
